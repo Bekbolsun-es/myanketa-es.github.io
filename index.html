@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Электронный журнал студентов</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+        }
+        .search-container {
+            margin-bottom: 20px;
+        }
+        .search-container input {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .search-container button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .search-container button:hover {
+            background-color: #0056b3;
+        }
+        .student-list {
+            margin-top: 20px;
+            list-style-type: none;
+            padding: 0;
+        }
+        .student-list li {
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Student Journal</h1>
+
+    <!-- Поле поиска -->
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Введите имя студента">
+        <button onclick="searchStudent()">Искать</button>
+    </div>
+
+    <!-- Список студентов -->
+    <ul class="student-list">
+        <li>1. Кочконбаев Бекболсун Ниязбекович</li>
+        <li>2. Эшманбетова Акылай</li>
+        <li>3. Ташболотова Индира</li>
+        <li>4. Советбеков Элмирбек</li>
+        <li>5. Кулмаматов Бексултан</li>
+        <li>6. Зиябидинов Азизбек</li>
+        <li>7. Бердибекова Нуржан Туйгуналиевна</li>
+        <li>8. Кадыров Шергазы Камалдинович</li>
+
+    </ul>
+
+    <script>
+        // Соответствие между именами студентов и страницами
+        const studentPages = {
+            '1. Кочконбаев Бекболсун Ниязбекович': '4.html',
+            '2. Эшманбетова Акылай': '2.html',
+            '3. Ташболотова Индира': '1p.html',
+            '4. Советбеков Элмирбек': '5.html',
+            '5. Кулмаматов Бексултан': '8.html',
+            '6. Зиябидинов Азизбек': '3.html',
+            '7. Бердибекова Нуржан Туйгуналиевна':'6.html',
+            '8. Кадыров Шергазы Камалдинович':'7.html',
+        };
+
+        // Функция поиска студента
+        function searchStudent() {
+            const searchName = document.getElementById('searchInput').value.trim();
+
+            // Проверяем, есть ли имя в списке
+            if (studentPages[searchName]) {
+                // Перенаправляем на соответствующую страницу
+                window.location.href = studentPages[searchName];
+            } else {
+                // Сообщение, если имя не найдено
+                alert('Студент не найден!');
+            }
+        }
+    </script>
+</body>
+</html>
